@@ -256,17 +256,45 @@ Trial 6 failed: Trial was pruned at epoch 3
 pip install tensorflow opencv-python scikit-learn optuna
 ```
 
+### Dataset Download
+
+**The dataset is not included in this repository due to its large size (>80MB). You must download it separately:**
+
+1. **Download the German Traffic Sign Recognition Benchmark (GTSRB) dataset:**
+   ```bash
+   wget https://cdn.cs50.net/ai/2023/x/projects/5/gtsrb.zip
+   ```
+
+2. **Extract the dataset:**
+   ```bash
+   unzip gtsrb.zip
+   ```
+
+3. **Move the dataset to your project directory:**
+   ```bash
+   mv gtsrb/ /path/to/your/project/
+   ```
+
+**Alternative download method:**
+- Visit: https://cdn.cs50.net/ai/2023/x/projects/5/gtsrb.zip
+- Download manually and extract to your project directory
+
 ### File Structure
 ```
 project/
 ├── traffic.py
 ├── traffic_optimize.py  
-├── gtsrb/              # Your dataset
-│   ├── 0/
-│   ├── 1/
+├── gtsrb/              # Downloaded dataset (not in repo)
+│   ├── 0/              # Speed limit (20km/h)
+│   ├── 1/              # Speed limit (30km/h)
+│   ├── 2/              # Speed limit (50km/h)
 │   └── ...
-└── README.md
+│   └── 42/             # Right-of-way at intersection
+├── README.md
+└── instructions_traffic.pdf
 ```
+
+**Important**: The `gtsrb/` folder contains thousands of traffic sign images (~39,000 total) and is excluded from version control due to size constraints.
 
 ---
 
@@ -423,4 +451,4 @@ python traffic_optimize.py gtsrb best_model.h5
 # 3. Compare results and choose best model
 ```
 
-This comprehensive system allows for both a reliable baseline (`traffic.py`) and the ability to push performance boundaries (`traffic_optimize.py`) for the project.
+This comprehensive system gives you both a reliable baseline (`traffic.py`) and the ability to push performance boundaries (`traffic_optimize.py`) for your traffic sign recognition project!
